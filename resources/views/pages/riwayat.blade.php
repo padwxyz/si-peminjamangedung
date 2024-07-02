@@ -56,12 +56,13 @@
                             <th scope="col">Jam Mulai</th>
                             <th scope="col">Jam Selesai</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Aksi</th> <!-- Kolom tambahan untuk tombol aksi -->
                         </tr>
                     </thead>
                     <tbody class="fs-6">
                         <tr>
                             <th scope="row" class="text-center">1</th>
-                            <td>John Doe</td>
+                            <td>Bhargo</td>
                             <td>Gedung A - Ruangan AA</td>
                             <td>Kepanitiaan</td>
                             <td>2024-06-23</td>
@@ -69,12 +70,14 @@
                             <td>10:00</td>
                             <td>18:00</td>
                             <td><span class="status-circle bg-secondary"></span> Tersedia</td>
+                            <td>
+                                <!-- Tombol untuk membatalkan peminjaman -->
+                                <button class="btn btn-sm btn-outline-danger">Batalkan</button>
+                            </td>
                         </tr>
-                    </tbody>
-                    <tbody class="fs-6">
                         <tr>
                             <th scope="row" class="text-center">2</th>
-                            <td>John Doe</td>
+                            <td>Devit</td>
                             <td>Gedung A - Ruangan AA</td>
                             <td>Kepanitiaan</td>
                             <td>2024-06-23</td>
@@ -82,12 +85,14 @@
                             <td>10:00</td>
                             <td>18:00</td>
                             <td><span class="status-circle bg-warning"></span> Pending</td>
+                            <td>
+                                <!-- Tombol untuk membatalkan peminjaman -->
+                                <button class="btn btn-sm btn-outline-danger">Batalkan</button>
+                            </td>
                         </tr>
-                    </tbody>
-                    <tbody class="fs-6">
                         <tr>
                             <th scope="row" class="text-center">3</th>
-                            <td>John Doe</td>
+                            <td>Nanda</td>
                             <td>Gedung A - Ruangan AA</td>
                             <td>Kepanitiaan</td>
                             <td>2024-06-23</td>
@@ -95,12 +100,14 @@
                             <td>10:00</td>
                             <td>18:00</td>
                             <td><span class="status-circle bg-danger"></span> Ditolak</td>
+                            <td>
+                                <!-- Tombol untuk membatalkan peminjaman -->
+                                <button class="btn btn-sm btn-outline-danger">Batalkan</button>
+                            </td>
                         </tr>
-                    </tbody>
-                    <tbody class="fs-6">
                         <tr>
                             <th scope="row" class="text-center">4</th>
-                            <td>John Doe</td>
+                            <td>Pasek</td>
                             <td>Gedung A - Ruangan AA</td>
                             <td>Kepanitiaan</td>
                             <td>2024-06-23</td>
@@ -108,6 +115,10 @@
                             <td>10:00</td>
                             <td>18:00</td>
                             <td><span class="status-circle bg-success"></span> Diterima</td>
+                            <td>
+                                <!-- Tombol untuk membatalkan peminjaman -->
+                                <button class="btn btn-sm btn-outline-danger">Batalkan</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

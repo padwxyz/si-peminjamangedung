@@ -129,7 +129,7 @@
                     <tbody>
                         <tr class="fs-6">
                             <th scope="row" class="text-center">1</th>
-                            <td>John Doe</td>
+                            <td>Bhargo</td>
                             <td>Gedung A</td>
                             <td>Ruangan 101</td>
                             <td>Rapat Proyek</td>
@@ -137,8 +137,8 @@
                             <td><span class="status-circle bg-secondary"></span> Tersedia</td>
                         </tr>
                         <tr class="fs-6">
-                            <th scope="row" class="text-center">1</th>
-                            <td>John Doe</td>
+                            <th scope="row" class="text-center">2</th>
+                            <td>Devit</td>
                             <td>Gedung A</td>
                             <td>Ruangan 101</td>
                             <td>Rapat Proyek</td>
@@ -146,8 +146,8 @@
                             <td><span class="status-circle bg-warning"></span> Pending</td>
                         </tr>
                         <tr class="fs-6">
-                            <th scope="row" class="text-center">1</th>
-                            <td>John Doe</td>
+                            <th scope="row" class="text-center">3</th>
+                            <td>Nanda</td>
                             <td>Gedung A</td>
                             <td>Ruangan 101</td>
                             <td>Rapat Proyek</td>
@@ -155,8 +155,8 @@
                             <td><span class="status-circle bg-danger"></span> Ditolak</td>
                         </tr>
                         <tr class="fs-6">
-                            <th scope="row" class="text-center">1</th>
-                            <td>John Doe</td>
+                            <th scope="row" class="text-center">4</th>
+                            <td>Pasek</td>
                             <td>Gedung A</td>
                             <td>Ruangan 101</td>
                             <td>Rapat Proyek</td>

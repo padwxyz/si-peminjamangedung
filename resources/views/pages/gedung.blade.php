@@ -38,15 +38,43 @@
                     yang Kami Miliki</h1>
                 <p></p>
             </div>
-            <div class="search-container mt-3">
-                <a href=""><i class="fas fa-search"></i></a>
-                <input type="text" id="search-input" placeholder="Cari gedung">
-                <button id="dropdown-button">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
+            <div class="container d-flex justify-content-center mt-3">
+                <div class="row">
+                    <div class="col-6">
+                        <form action="#" class="d-flex form-inline" style="width: 500px;" id="formSelector">
+                            <select name="search" class="form-select shadow-sm"
+                                style="border-radius: 0.25rem 0 0 0.25rem; border-right: none;" id="formType">
+                                <option value="#">Cari sesuai Fakultas</option>
+                                <option value="fakultasA">Fakultas A</option>
+                                <option value="fakultasB">FakultasB</option>
+                                <option value="fakultasC">Fakultas C</option>
+                                <option value="fakultasD">Fakultas D</option>
+                                <option value="fakultasE">Fakultas E</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="col-6">
+                        <form action="#" class="d-flex form-inline" style="width: 500px;" id="formSelector">
+                            <select name="search" class="form-select shadow-sm"
+                                style="border-radius: 0.25rem 0 0 0.25rem; border-right: none;" id="formType">
+                                <option value="#">Cari sesuai Prodi</option>
+                                <option value="prodiA">Prodi A</option>
+                                <option value="prodiB">ProdiB</option>
+                                <option value="prodiC">Prodi C</option>
+                                <option value="prodiD">Prodi D</option>
+                                <option value="prodiE">Prodi E</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-flex justify-content-center mt-4">
+                <button class="button-secondary" style="width: 1024px">Cari Gedung</button>
             </div>
         </div>
     </section>
+    
+    {{-- <button type="button" class="button-secondary" style="border-radius: 0 0.25rem 0.25rem 0; border-left: none; "onclick="selectForm()">Go</button> --}}
     <!-- Welcome End -->
 
     <!-- Card List Gedung Start -->

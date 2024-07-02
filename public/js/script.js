@@ -1,5 +1,5 @@
 const navbar = document.getElementsByTagName('nav')[0];
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     console.log(window.scrollY);
     if (window.scrollY > 1) {
         navbar.classList.replace('bg-transparent', 'nav-color')
@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-document.getElementById('dropdown-button').addEventListener('click', function() {
+document.getElementById('dropdown-button').addEventListener('click', function () {
     alert('Dropdown button clicked');
 });
 
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dateDiv.style.cursor = 'pointer';
             dateDiv.textContent = i;
             dateDiv.classList.add('calendar-date');
-            dateDiv.addEventListener('click', function() {
+            dateDiv.addEventListener('click', function () {
                 dateDiv.classList.toggle('selected');
             });
             calendarDates.appendChild(dateDiv);
@@ -78,3 +78,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     renderCalendar(currentYear, currentMonthIndex);
 });
+
+// form peminjaman
+function selectForm() {
+    var formType = document.getElementById('formType').value;
+    if (formType === 'civitas_unud') {
+        document.getElementById('civitasForm').style.display = 'block';
+        document.getElementById('umumForm').style.display = 'none';
+    } else if (formType === 'umum') {
+        document.getElementById('umumForm').style.display = 'block';
+        document.getElementById('civitasForm').style.display = 'none';
+    }
+}

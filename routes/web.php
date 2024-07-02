@@ -37,3 +37,7 @@ Route::get('/peminjaman', function () {
 Route::get('/riwayat', function () {
     return view('pages.riwayat');
 })->name('riwayat');
+
+Route::get('/admin', function () {
+    return view('admin.admin');
+})->name('admin');
