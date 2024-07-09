@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('building_room');
             $table->integer('floor_quantity');
             $table->integer('building_capacity');
-            $table->timestamps();
         });
     }
 

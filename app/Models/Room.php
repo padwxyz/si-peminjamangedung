@@ -15,4 +15,12 @@ class Room extends Model
         'room_capacity',
         'number_of_floor',
     ];
+    public function Building(): BelongsTo
+    {
+        return $this->belongsTo(Building::class);
+    }
+    public function Facility(): HasMany
+    {
+        return $this->hasMany(Facility::class);
+    }
 }

@@ -21,4 +21,17 @@ class Schedules extends Model
         'purpose',
         'status_id',
     ];
+
+    public function Building(): HasOne
+    {
+        return $this->hasOne(Building::class);
+    }
+    public function User(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function Admin(): BelongsTo
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }

@@ -16,4 +16,9 @@ class Facility extends Model
         'board',
         'lamp',
     ];
+
+    public function Room(): BelongsTo
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

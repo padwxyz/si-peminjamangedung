@@ -14,4 +14,13 @@ class Building extends Model
         'floor_quantity',
         'building_capacity',
     ];
+
+    public function Schedules(): HasOne
+    {
+        return $this->hasOne(Schedules::class);
+    }
+    public function Room(): HasMany
+    {
+        return $this->hasMany(Room::class);
+    }
 }

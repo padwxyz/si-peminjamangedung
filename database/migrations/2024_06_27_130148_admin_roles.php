@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('admin_roles', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->timestamps();
+            $table->enum('title', array('prodi', 'fakultas', 'sapras'));
         });
     }
 

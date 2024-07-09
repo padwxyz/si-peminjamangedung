@@ -11,4 +11,9 @@ class AdminRole extends Model
     protected $filable = [
         'title',
     ];
+
+    public function Admin(): HasOne
+    {
+        return $this->hasOne(Admin::class);
+    }
 }

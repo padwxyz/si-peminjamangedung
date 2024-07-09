@@ -14,4 +14,14 @@ class Admin extends Model
         'phone_number',
         'address',
     ];
+
+    public function Schedules(): HasMany
+    {
+        return $this->hasMany(Schedules::class);
+    }
+
+    public function AdminRole(): HasOne
+    {
+        return $this->hasOne(AdminRole::class);
+    }
 }

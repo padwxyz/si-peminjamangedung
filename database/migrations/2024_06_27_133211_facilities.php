@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('room_id');
+            $table->foreign('room_id')->references('id')->on('rooms');
             $table->integer('chair');
             $table->integer('table');
             $table->integer('ac');
             $table->integer('projector');
             $table->integer('board');
             $table->integer('lamp');
-            $table->timestamps();
         });
     }
 

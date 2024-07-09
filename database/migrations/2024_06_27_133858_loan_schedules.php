@@ -13,17 +13,19 @@ return new class extends Migration
     {
         Schema::create('loan_schedules', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('building_id')->constrained();
-            $table->foreignId('room_id')->constrained();
-
-            $table->foreignId('admin_id')->nullable()->constrained();
-            $table->foreign('user_id')->nullable()->constrained();
+            $table->unsignedBigInteger('building_id');
+            $table->foreign('building_id')->references('id')->on('buildings');
+            $table->unsignedBigInteger('room_id');
+            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->nullable()->references('id')->on('admins');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->nullable()->references('id')->on('users');
 
             $table->date('loan_start_date');
             $table->date('laon_end_date');
             $table->time('start_time');
             $table->time('end_time');
-            $table->file('activity_letter');
             $table->string('purpose');
             $table->tinyInteger('status_id')->default(0);
             $table->timestamps();
