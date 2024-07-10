@@ -9,9 +9,7 @@
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caveat&family=Jersey+15&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
@@ -29,40 +27,33 @@
 </head>
 <body>
     <section>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="sidebar">
-                    <div>
-                        <h2 class="heading2 mb-5">URB</h2>
-                        <a href="#beranda" class="mb-2"><i class="fas fa-home"></i> Beranda</a>
-                        <button class="dropdown-btn mb-2"><i class="fas fa-user"></i> Auth
-                            <span class="dropdown-icon">▾</span>
-                        </button>
-                        <div class="dropdown-container">
-                            <a href="#login">Login</a>
-                            <a href="#register">Register</a>
-                        </div>
-                        <button class="dropdown-btn mb-3"><i class="fas fa-user-cog"></i> Profile Admin
-                            <span class="dropdown-icon">▾</span>
-                        </button>
-                        <div class="dropdown-container">
-                            <a href="#prodi">Prodi</a>
-                            <a href="#fakultas">Fakultas</a>
-                            <a href="#sarpras">Sarpras</a>
-                        </div>
-                        <a href="#data-user" class="mb-2"><i class="fas fa-users"></i> Data User</a>
-                        <a href="#riwayat-peminjaman" class="mb-2"><i class="fas fa-history"></i> Data Riwayat Peminjaman</a>
-                        <a href="#data-gedung" class="mb-2"><i class="fas fa-building"></i> Data Gedung</a>
-                        <a href="#mengelola-jadwal" class="mb-2"><i class="fas fa-calendar-alt"></i> Jadwal Peminjaman</a>
-                    </div>
+        <div class="sidebar">
+            <div>
+                <h2 class="heading2 mt-3 mb-5">URB</h2>
+                <a href="#beranda" class="mb-2"><i class="fas fa-home"></i> Beranda</a>
+                <button class="dropdown-btn mb-2"><i class="fas fa-user"></i> Auth
+                    <span class="dropdown-icon">▾</span>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#login">Login</a>
+                    <a href="#register">Register</a>
                 </div>
-            </div>
-            <div class="col-md-8">
-                
+                <button class="dropdown-btn mb-3"><i class="fas fa-user-cog"></i> Profile Admin
+                    <span class="dropdown-icon">▾</span>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#prodi">Prodi</a>
+                    <a href="#fakultas">Fakultas</a>
+                    <a href="#sarpras">Sarpras</a>
+                </div>
+                <a href="#data-user" class="mb-2"><i class="fas fa-users"></i> Data User</a>
+                <a href="#riwayat-peminjaman" class="mb-2"><i class="fas fa-history"></i> Data Riwayat Peminjaman</a>
+                <a href="#data-gedung" class="mb-2"><i class="fas fa-building"></i> Data Gedung</a>
+                <a href="#mengelola-jadwal" class="mb-2"><i class="fas fa-calendar-alt"></i> Jadwal Peminjaman</a>
             </div>
         </div>
-        
     </section>
+    
     
     <section>
         <div class="container">
@@ -70,11 +61,93 @@
                 <h1 class="heading2">Selamat Datang Admin 1 👋</h1>
             </div>
             <div class="row ms-5 ps-5">
-                <div class="col-6 bg-primary">
-                    test test <br><br><br><br><br><br>
+                <div class="col-md-6">
+                    <div class="text-white p-3 rounded" style="background-color: #FF7A00">
+                        <h3>Peminjaman Hari Ini</h3>
+                        <p>Jumlah Peminjaman Hari Ini: 5</p>
+                        <a href="#peminjaman-hari-ini" class="btn btn-dark">Lihat</a>
+                    </div>
                 </div>
-                <div class="col-6 bg-warning">
-                    test test <br><br><br><br><br><br>
+                <div class="col-md-6">
+                    <div class="text-white p-3 rounded" style="background-color: #FF7A00">
+                        <h3>Total Keseluruhan Peminjaman</h3>
+                        <p>Total Peminjaman: 123</p>
+                        <a href="#total-peminjaman" class="btn btn-dark">Lihat</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ms-5 ps-5 mt-5">
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="text-center fs-5">
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Peminjam</th>
+                                <th scope="col">Gedung</th>
+                                <th scope="col">Ruangan</th>
+                                <th scope="col">Keterangan</th>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fs-6">
+                                <th scope="row" class="text-center">1</th>
+                                <td>Ananda</td>
+                                <td>Gedung A</td>
+                                <td>Ruangan 101</td>
+                                <td>Perkuliahan</td>
+                                <td>2024-06-23</td>
+                                <td><span class="status-circle bg-secondary"></span> Tersedia</td>
+                            </tr>
+                            <tr class="fs-6">
+                                <th scope="row" class="text-center">2</th>
+                                <td>Sida</td>
+                                <td>Gedung B</td>
+                                <td>Ruangan 202</td>
+                                <td>Kepanitiaan</td>
+                                <td>2024-06-24</td>
+                                <td><span class="status-circle bg-warning"></span> Pending</td>
+                            </tr>
+                            <tr class="fs-6">
+                                <th scope="row" class="text-center">3</th>
+                                <td>Bhargo</td>
+                                <td>Gedung C</td>
+                                <td>Ruangan 303</td>
+                                <td>Perkuliahan</td>
+                                <td>2024-06-25</td>
+                                <td><span class="status-circle bg-danger"></span> Ditolak</td>
+                            </tr>
+                            <tr class="fs-6">
+                                <th scope="row" class="text-center">4</th>
+                                <td>Pasek</td>
+                                <td>Gedung D</td>
+                                <td>Ruangan 404</td>
+                                <td>Kepanitiaan</td>
+                                <td>2024-06-26</td>
+                                <td><span class="status-circle bg-success"></span> Diterima</td>
+                            </tr>
+                            <tr class="fs-6">
+                                <th scope="row" class="text-center">5</th>
+                                <td>Devit</td>
+                                <td>Gedung E</td>
+                                <td>Ruangan 505</td>
+                                <td>Perkuliahan</td>
+                                <td>2024-06-27</td>
+                                <td><span class="status-circle bg-secondary"></span> Tersedia</td>
+                            </tr>
+                            <tr class="fs-6">
+                                <th scope="row" class="text-center">6</th>
+                                <td>Yogananda</td>
+                                <td>Gedung F</td>
+                                <td>Ruangan 606</td>
+                                <td>Kepanitiaan</td>
+                                <td>2024-06-28</td>
+                                <td><span class="status-circle bg-warning"></span> Pending</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

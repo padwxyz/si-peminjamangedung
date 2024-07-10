@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Jersey+15&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -26,22 +26,28 @@
                     <div class="text-white text-center p-5">
                         <h1 class="heading1">URB</h1>
                         <h2 class="heading4">Masuk untuk menggunakan layanan kami!</h2>
-                        <p class="body-text-small">Kamu cukup memasukkan nomor ponsel atau email aja, kok.</p>
+                        <p class="body-text-small">Kamu cukup memasukkan email dan password aja, kok.</p>
                     </div>
                 </div>
 
                 <div class="col-md-6 d-flex align-items-center justify-content-center">
                     <div class="px-5">
                         <h3 class="heading3 fw-bold mb-3 pb-3">Masuk</h3>
-                        <form style="width: 27rem;">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        <form method="POST" action="{{ route('login') }}" style="width: 27rem;">
+                            @csrf
                             <div class="form-outline mb-4">
-                                <input type="email" id="form2Example18" class="body-text-small form-control form-control-lg" placeholder="Nomor Ponsel atau Email"/>
+                                <input type="email" id="email" name="email" class="body-text-small form-control form-control-lg" placeholder="Email" required/>
                             </div>
                             <div class="form-outline mb-4">
-                                <input type="password" id="form2Example28" class="body-text-small form-control form-control-lg" placeholder="Password"/>
+                                <input type="password" id="password" name="password" class="body-text-small form-control form-control-lg" placeholder="Password" required/>
                             </div>
                             <div class="pt-1 mb-4">
-                                <button class="button-primary" type="button"><a href="{{ route('urb') }}">Masuk</a></button>
+                                <button class="button-primary" type="submit">Masuk</button>
                             </div>
                             <div class="text-center mb-4">
                                 <span class="text-muted">Atau masuk dengan</span>
@@ -51,15 +57,16 @@
                                     <i class="fab fa-apple fa-2x mx-2"></i>
                                 </div>
                             </div>
-                            <div class="text-center mt-4">
-                                <p>Dengan masuk, kamu menyetujui <a href="#" class="text-orange fw-semibold">Syarat & Ketentuan</a> dan <a href="#" class="text-orange fw-semibold">Kebijakan Privasi URB</a>.</p>
+                            <div class="text-center">
+                                <p class="">Dengan masuk, kamu menyetujui <a href="#" class="text-orange fw-semibold">Syarat & Ketentuan</a> dan <a href="#" class="text-orange fw-semibold">Kebijakan Privasi URB</a>.</p>
                             </div>
                             <div class="text-center mt-5">
-                                <p>Belum punya akun? <a href="{{ route('daftar') }}" class="text-orange fw-semibold">Daftar</a></p>
+                                <p>Belum punya akun? <a href="{{ route('register') }}" class="text-orange fw-semibold">Daftar</a></p>
                             </div>
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

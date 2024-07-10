@@ -8,10 +8,6 @@ window.addEventListener('scroll', function () {
     }
 });
 
-document.getElementById('dropdown-button').addEventListener('click', function () {
-    alert('Dropdown button clicked');
-});
-
 // calendar
 document.addEventListener('DOMContentLoaded', function () {
     const currentMonth = document.getElementById('current-month');

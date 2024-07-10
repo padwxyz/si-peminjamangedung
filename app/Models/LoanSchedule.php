@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Schedules extends Model
 {
     use HasFactory;
-    protected $filable = [
+
+    protected $fillable = [
         'admin_id',
         'user_id',
         'building_id',
@@ -22,15 +25,17 @@ class Schedules extends Model
         'status_id',
     ];
 
-    public function Building(): HasOne
+    public function building(): HasOne
     {
         return $this->hasOne(Building::class);
     }
-    public function User(): BelongsTo
+
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function Admin(): BelongsTo
+
+    public function admin(): BelongsTo
     {
         return $this->belongsTo(Admin::class);
     }

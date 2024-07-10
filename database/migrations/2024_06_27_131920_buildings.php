@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('buildings', function (Blueprint $table) {
@@ -17,12 +14,13 @@ return new class extends Migration
             $table->integer('building_room');
             $table->integer('floor_quantity');
             $table->integer('building_capacity');
+            $table->string('faculty');
+            $table->string('prodi');
+            $table->boolean('is_highlighted')->default(false); // Adding highlight field
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('buildings');

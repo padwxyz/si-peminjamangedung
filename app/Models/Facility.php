@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Facility extends Model
 {
     use HasFactory;
-    protected $filable = [
+
+    protected $fillable = [
+        'room_id',
         'chair',
         'table',
         'ac',
@@ -17,7 +20,7 @@ class Facility extends Model
         'lamp',
     ];
 
-    public function Room(): BelongsTo
+    public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class);
     }

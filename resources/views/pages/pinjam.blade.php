@@ -56,7 +56,7 @@
     <section id="civitasForm" {{--- style="display: none;" ---}}>
         <div class="container mt-5">
             <div class="card p-4 shadow-sm">
-                <form action="">
+                <form>
                     <div class="text-center my-3">
                         <h3 class="heading3">Form Peminjaman Gedung dan Ruangan</h3>
                         <p class="body-text-small">Untuk Civitas Akademika Universitas Udayana</p>
@@ -66,8 +66,8 @@
                         <input type="text" class="form-control shadow-sm" id="nama" placeholder="Masukkan Nama" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="nama">NIM</label>
-                        <input type="text" class="form-control shadow-sm" id="nama" placeholder="Masukkan NIM" required>
+                        <label class="form-label" for="nim">NIM</label>
+                        <input type="text" class="form-control shadow-sm" id="nim" placeholder="Masukkan NIM" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="email">Email</label>
@@ -160,8 +160,8 @@
                     </div>
     
                     <div class="mb-3 text-end">
-                        <button type="submit" class="btn btn-success">Submit</button>
-                        <button type="submit" class="btn btn-danger">Cancel</button>
+                        <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
+                        <button type="button" class="btn btn-danger" id="cancelBtn">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -172,7 +172,7 @@
     <section id="umumForm" style="display: none;">
         <div class="container mt-5">
             <div class="card p-4 shadow-sm">
-                <form action="">
+                <form>
                     <div class="text-center my-3">
                         <h3 class="heading3">Form Peminjaman Gedung dan Ruangan</h3>
                         <p class="body-text-small">Untuk Umum</p>
@@ -191,8 +191,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="nama">Asal Instansi</label>
-                        <input type="text" class="form-control shadow-sm" id="nama" placeholder="Masukkan Asal Instansi" required>
+                        <label class="form-label" for="instansi">Asal Instansi</label>
+                        <input type="text" class="form-control shadow-sm" id="instansi" placeholder="Masukkan Asal Instansi" required>
                     </div>
 
                     <div class="row mb-3">
@@ -256,8 +256,8 @@
                     </div>
     
                     <div class="mb-3 text-end">
-                        <button type="submit" class="btn btn-success">Submit</button>
-                        <button type="submit" class="btn btn-danger">Cancel</button>
+                        <button type="submit" class="btn btn-success" id="submitBtnUmum">Submit</button>
+                        <button type="button" class="btn btn-danger" id="cancelBtnUmum">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -275,6 +275,49 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const submitBtn = document.getElementById('submitBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const submitBtnUmum = document.getElementById('submitBtnUmum');
+        const cancelBtnUmum = document.getElementById('cancelBtnUmum');
+
+        if (submitBtn) {
+            submitBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                alert('Form Berhasil dikirim! Pantau terus status peminjamanmu di riwayat peminjaman!');
+            });
+        }
+
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                const confirmCancel = confirm('Apakah anda yakin untuk membatalkan pengisian form?');
+                if (confirmCancel) {
+                    alert('Pengisian form dibatalkan!');
+                }
+            });
+        }
+
+        if (submitBtnUmum) {
+            submitBtnUmum.addEventListener('click', function(event) {
+                event.preventDefault();
+                alert('Form Berhasil dikirim! Pantau terus status peminjamanmu di riwayat peminjaman!');
+            });
+        }
+
+        if (cancelBtnUmum) {
+            cancelBtnUmum.addEventListener('click', function(event) {
+                event.preventDefault();
+                const confirmCancel = confirm('Apakah anda yakin untuk membatalkan pengisian form?');
+                if (confirmCancel) {
+                    alert('Pengisian form dibatalkan!');
+                }
+            });
+        }
+    });
+</script>
 
 <script src="{{ asset('js/script.js') }}"></script>
 

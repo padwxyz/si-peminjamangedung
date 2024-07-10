@@ -4,16 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AdminRole extends Model
 {
     use HasFactory;
-    protected $filable = [
+
+    protected $fillable = [
         'title',
     ];
 
-    public function Admin(): HasOne
+    public function admins(): HasMany
     {
-        return $this->hasOne(Admin::class);
+        return $this->hasMany(Admin::class);
     }
 }

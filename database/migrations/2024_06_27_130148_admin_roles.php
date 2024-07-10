@@ -6,20 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('admin_roles', function (Blueprint $table) {
             $table->id();
-            $table->enum('title', array('prodi', 'fakultas', 'sapras'));
+            $table->enum('title', ['prodi', 'fakultas', 'sapras']);
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('admin_roles');

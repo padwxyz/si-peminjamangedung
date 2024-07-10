@@ -11,7 +11,7 @@
                     <a class="nav-link active" aria-current="page" href="{{ route('urb') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active ms-4" aria-current="page" href="{{ route('gedung') }}">Gedung</a>
+                    <a class="nav-link active ms-4" aria-current="page" href="{{ route('buildings.index') }}">Gedung</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active ms-4" aria-current="page" href="{{ route('peminjaman') }}">Peminjaman</a>

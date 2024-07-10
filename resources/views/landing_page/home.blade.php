@@ -9,9 +9,7 @@
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caveat&family=Jersey+15&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -51,8 +49,8 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <button class="button-secondary me-2"><a href="{{ route('masuk') }}">Masuk</a></button>
-                    <button class="button-primary"><a href="{{ route('daftar') }}">Daftar</a></button>
+                    <button class="button-secondary me-2"><a href="{{ route('login') }}">Masuk</a></button>
+                    <button class="button-primary"><a href="{{ route('register') }}">Daftar</a></button>
                 </div>
             </div>
         </div>
@@ -71,7 +69,7 @@
                         Universitas Udayana. Temukan fleksibilitas dan kemudahan
                         dalam setiap peminjaman gedung.
                     </p>
-                    <button class="mt-4 button-secondary" style="width: 230px; height: 50px;"><a href="{{ route('masuk') }}">G e t &nbsp; S
+                    <button class="mt-4 button-secondary" style="width: 230px; height: 50px;"><a href="{{ route('login') }}">G e t &nbsp; S
                             t a r t e d</a></button>
                 </div>
             </div>
