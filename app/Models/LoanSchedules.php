@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Schedules extends Model
+class LoanSchedules extends Model
 {
     use HasFactory;
 
@@ -25,14 +25,19 @@ class Schedules extends Model
         'status_id',
     ];
 
-    public function building(): HasOne
+    public function building(): BelongsTo
     {
-        return $this->hasOne(Building::class);
+        return $this->belongsTo(Building::class, 'building_id', 'id');
+    }
+
+    public function room(): BelongsTo
+    {
+        return $this->belongsTo(Room::class, 'room_id','id');
     }
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function admin(): BelongsTo

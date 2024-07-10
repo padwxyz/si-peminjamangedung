@@ -18,11 +18,6 @@ class Building extends Model
         'building_capacity',
     ];
 
-    public function schedules(): HasOne
-    {
-        return $this->hasOne(Schedules::class);
-    }
-
     public function room(): HasMany
     {
         return $this->hasMany(Room::class);

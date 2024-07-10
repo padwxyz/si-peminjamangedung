@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BuildingController;
+use App\Http\Controllers\GenerateReportController;
 
 Route::get('/', function () {
     return view('landing_page.home');
@@ -57,6 +58,9 @@ Route::get('/peminjaman', function () {
 Route::get('/riwayat', function () {
     return view('pages.riwayat');
 })->name('riwayat');
+
+//10/07/2024 generate report
+Route::get('/riwayat/generate-history-report', [GenerateReportController::class, 'generateHistoryReport'])->name('generateHistoryReport');
 
 Route::get('/admin', function () {
     return view('admin.admin');

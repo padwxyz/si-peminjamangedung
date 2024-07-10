@@ -37,8 +37,12 @@
             </div>
         </div>
     </section>
-    <!-- Welcome End -->
-
+    <!-- generate report button -->
+    <div class="row justify-content-end">
+        <a href="{{ route('generateHistoryReport') }}" class="btn btn-primary mb-3"><i
+            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+    <!-- Welcome End --> 
     <section>
         <div class="container mt-5">
             <div class="table-responsive">

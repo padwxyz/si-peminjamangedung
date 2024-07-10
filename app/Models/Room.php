@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Room extends Model
 {
@@ -27,5 +28,10 @@ class Room extends Model
     public function facilities(): HasMany
     {
         return $this->hasMany(Facility::class);
+    }
+
+    public function schedules(): HasOne
+    {
+        return $this->hasOne(LoanSchedules::class);
     }
 }
