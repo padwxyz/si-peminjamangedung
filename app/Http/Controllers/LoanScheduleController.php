@@ -2,57 +2,80 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LoanSchedules;
 use Illuminate\Http\Request;
-use App\Models\Loan;
 
-class LoanController extends Controller
+class LoanScheduleController extends Controller
 {
+    public function index()
+    {
+        $schedules = LoanSchedules::with(['building', 'room', 'user', 'admin'])->get();
+        return view('loan_schedules.index', compact('schedules'));
+    }
+
+    public function create()
+    {
+        // retrieve necessary data for form options
+        return view('loan_schedules.create');
+    }
+
     public function store(Request $request)
     {
-        // Validate the request data
-        $validatedData = $request->validate([
-            'nama' => 'required|string|max:255',
-            'nim' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'telepon' => 'required|string|max:255',
-            'fakultas' => 'required|string|max:255',
-            'prodi' => 'required|string|max:255',
-            'gedung' => 'required|string|max:255',
-            'ruangan' => 'required|string|max:255',
-            'tanggal_mulai' => 'required|date',
-            'jam_mulai' => 'required|date_format:H:i',
-            'tanggal_selesai' => 'required|date',
-            'jam_selesai' => 'required|date_format:H:i',
-            'surat_izin_kegiatan' => 'required|file|mimes:pdf,doc,docx',
-            'keterangan' => 'required|string',
+        $validated = $request->validate([
+            'admin_id' => 'nullable|exists:admins,id',
+            'user_id' => 'nullable|exists:users,id',
+            'building_id' => 'required|exists:buildings,id',
+            'room_id' => 'required|exists:rooms,id',
+            'loan_start_date' => 'required|date',
+            'loan_end_date' => 'required|date',
+            'start_time' => 'required|date_format:H:i',
+            'end_time' => 'required|date_format:H:i',
+            'activity_letter' => 'nullable|string',
+            'purpose' => 'required|string',
+            'status_id' => 'required|in:available,pending,rejected,accepted',
         ]);
 
-        // Create a new loan entry
-        $loan = new Loan();
-        $loan->nama = $validatedData['nama'];
-        $loan->nim = $validatedData['nim'];
-        $loan->email = $validatedData['email'];
-        $loan->telepon = $validatedData['telepon'];
-        $loan->fakultas = $validatedData['fakultas'];
-        $loan->prodi = $validatedData['prodi'];
-        $loan->gedung = $validatedData['gedung'];
-        $loan->ruangan = $validatedData['ruangan'];
-        $loan->tanggal_mulai = $validatedData['tanggal_mulai'];
-        $loan->jam_mulai = $validatedData['jam_mulai'];
-        $loan->tanggal_selesai = $validatedData['tanggal_selesai'];
-        $loan->jam_selesai = $validatedData['jam_selesai'];
+        LoanSchedules::create($validated);
+        return redirect()->route('peminjaman.index')->with('success', 'Loan Schedule created successfully.');
+    }
 
-        if ($request->hasFile('surat_izin_kegiatan')) {
-            $file = $request->file('surat_izin_kegiatan');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/surat_izin_kegiatan', $filename);
-            $loan->surat_izin_kegiatan = $filename;
-        }
+    public function show($id)
+    {
+        $schedule = LoanSchedules::with(['building', 'room', 'user', 'admin'])->findOrFail($id);
+        return view('loan_schedules.show', compact('schedule'));
+    }
 
-        $loan->keterangan = $validatedData['keterangan'];
-        $loan->save();
+    public function edit($id)
+    {
+        $schedule = LoanSchedules::findOrFail($id);
+        return view('loan_schedules.edit', compact('schedule'));
+    }
 
-        // Redirect or return a response
-        return redirect()->back()->with('success', 'Form submitted successfully!');
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'admin_id' => 'nullable|exists:admins,id',
+            'user_id' => 'nullable|exists:users,id',
+            'building_id' => 'required|exists:buildings,id',
+            'room_id' => 'required|exists:rooms,id',
+            'loan_start_date' => 'required|date',
+            'loan_end_date' => 'required|date',
+            'start_time' => 'required|date_format:H:i',
+            'end_time' => 'required|date_format:H:i',
+            'activity_letter' => 'nullable|string',
+            'purpose' => 'required|string',
+            'status_id' => 'required|in:available,pending,rejected,accepted',
+        ]);
+
+        $schedule = LoanSchedules::findOrFail($id);
+        $schedule->update($validated);
+        return redirect()->route('peminjaman.index')->with('success', 'Loan Schedule updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $schedule = LoanSchedules::findOrFail($id);
+        $schedule->delete();
+        return redirect()->route('peminjaman.index')->with('success', 'Loan Schedule deleted successfully.');
     }
 }

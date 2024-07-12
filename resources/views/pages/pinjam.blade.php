@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URB</title>
+    <title>Form Peminjaman</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Jersey+15&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -44,8 +44,7 @@
     </section>
 
     <!-- Form Peminjaman  Start -->
-    {{-- civitas akademika unud --}}
-    <section id="civitasForm" style="display: none;">
+    <section id="civitasForm">
         <div class="container mt-5">
             <div class="card p-4 shadow-sm">
                 <form method="POST" action="{{ route('loan.store') }}" enctype="multipart/form-data">
@@ -74,11 +73,16 @@
                     <div class="row mb-3">
                         <div class="col-6">
                             <label for="fakultas" class="form-label">Fakultas</label>
-                            <input type="text" class="form-control shadow-sm" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas" required>
+                            <select name="fakultas" class="form-select shadow-sm" id="fakultas">
+                                <option value="Fakultas A">Fakultas A</option>
+                                <option value="Fakultas B">Fakultas B</option>
+                            </select>
                         </div>
                         <div class="col-6">
                             <label for="prodi" class="form-label">Prodi</label>
-                            <input type="text" class="form-control shadow-sm" id="prodi" name="prodi" placeholder="Masukkan Prodi" required>
+                            <select name="prodi" class="form-select shadow-sm" id="prodi">
+                                <!-- Pilihan prodi akan diisi dengan AJAX -->
+                            </select>
                         </div>
                     </div>
 
@@ -95,10 +99,7 @@
                         <div class="col-6">
                             <label for="ruangan" class="form-label">Ruangan</label>
                             <select name="ruangan" class="form-select shadow-sm" id="ruangan">
-                                <option value="1">Ruangan 1</option>
-                                <option value="2">Ruangan 2</option>
-                                <option value="3">Ruangan 3</option>
-                                <option value="4">Ruangan 4</option>
+                                <!-- Pilihan ruangan akan diisi dengan AJAX -->
                             </select>
                         </div>
                     </div>
@@ -150,7 +151,6 @@
         </div>
     </section>
 
-    {{-- umum --}}
     <section id="umumForm" style="display: none;">
         <div class="container mt-5">
             <div class="card p-4 shadow-sm">
@@ -195,10 +195,7 @@
                         <div class="col-6">
                             <label for="ruangan" class="form-label">Ruangan</label>
                             <select name="ruangan" class="form-select shadow-sm" id="ruangan">
-                                <option value="1">Ruangan 1</option>
-                                <option value="2">Ruangan 2</option>
-                                <option value="3">Ruangan 3</option>
-                                <option value="4">Ruangan 4</option>
+                                <!-- Pilihan ruangan akan diisi dengan AJAX -->
                             </select>
                         </div>
                     </div>
@@ -250,13 +247,15 @@
         </div>
     </section>
 
+    @include('components.layouts.footer')
+
     <!-- Custom JS -->
     <script>
         function selectForm() {
             var selectedForm = document.getElementById("formType").value;
             var civitasForm = document.getElementById("civitasForm");
             var umumForm = document.getElementById("umumForm");
-
+    
             if (selectedForm === "civitas_unud") {
                 civitasForm.style.display = "block";
                 umumForm.style.display = "none";
@@ -265,6 +264,46 @@
                 umumForm.style.display = "block";
             }
         }
+    
+        document.getElementById('fakultas').addEventListener('change', function() {
+            var fakultas = this.value;
+            fetch(`/get-prodi?fakultas=${fakultas}`)
+                .then(response => response.json())
+                .then(data => {
+                    var prodiSelect = document.getElementById('prodi');
+                    prodiSelect.innerHTML = '';
+                    data.forEach(function(prodi) {
+                        var option = document.createElement('option');
+                        option.value = prodi;
+                        option.text = prodi;
+                        prodiSelect.appendChild(option);
+                    });
+                });
+    
+            // Reset ruangan dropdown
+            document.getElementById('ruangan').innerHTML = '';
+        });
+    
+        document.getElementById('prodi').addEventListener('change', function() {
+            var fakultas = document.getElementById('fakultas').value;
+            var prodi = this.value;
+            fetch(`/get-ruangan?fakultas=${fakultas}&prodi=${prodi}`)
+                .then(response => response.json())
+                .then(data => {
+                    var ruanganSelect = document.getElementById('ruangan');
+                    ruanganSelect.innerHTML = '';
+                    data.forEach(function(ruangan) {
+                        var option = document.createElement('option');
+                        option.value = ruangan;
+                        option.text = ruangan;
+                        ruanganSelect.appendChild(option);
+                    });
+                });
+        });
     </script>
+    
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 </html>

@@ -8,7 +8,7 @@
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
@@ -23,27 +23,29 @@
     <!-- Navbar -->
     @include('components.layouts.navbar-main')
 
-    <section class="container mt-5">
-        <div class="text-center text-white">
-            <h1 class="heading1">{{ $building->building_name }}</h1>
+    <section>
+        <div id="beranda" class="container-fluid banner1">
+            <div class="container text-center text-white">
+                <h1 class="heading1">{{ $building->building_name }}</h1>
+            </div>
+            <div class="d-flex justify-content-center mt-3 gap-3">
+                <div class="d-flex flex-column justify-content-center align-items-center p-3" style="width: 170px; height: 100px; border: 2px solid #FF7A00; border-radius: 10px;">
+                    <h4 class="heading4" style="color: #FF7A00; margin: 0; font-size: 1.1rem;">{{ $building->rooms->count() }} Ruangan</h4>
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center p-3" style="width: 170px; height: 100px; border: 2px solid #FF7A00; border-radius: 10px;">
+                    <h4 class="heading4" style="color: #FF7A00; margin: 0; font-size: 1.1rem;">{{ $building->floor_quantity }} Lantai</h4>
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center p-3" style="width: 170px; height: 100px; border: 2px solid #FF7A00; border-radius: 10px;">
+                    <h4 class="heading4" style="color: #FF7A00; margin: 0; font-size: 1.1rem;">{{ $building->building_capacity }} Kapasitas</h4>
+                </div>
+            </div>
         </div>
-        <div class="d-flex justify-content-center mt-3">
-            <div class="text-center p-3" style="width: 170px; height: 100px; border: 2px solid #FF7A00; border-radius: 10px;">
-                <h4 class="heading4" style="color: #FF7A00; margin: 0;">{{ $building->rooms->count() }} Ruangan</h4>
-            </div>
-            <div class="text-center p-3" style="width: 170px; height: 100px; border: 2px solid #FF7A00; border-radius: 10px;">
-                <h4 class="heading4" style="color: #FF7A00; margin: 0;">{{ $building->floor_quantity }} Lantai</h4>
-            </div>
-            <div class="text-center p-3" style="width: 170px; height: 100px; border: 2px solid #FF7A00; border-radius: 10px;">
-                <h4 class="heading4" style="color: #FF7A00; margin: 0;">{{ $building->building_capacity }} Kapasitas</h4>
-            </div>
-        </div>
-        <div class="mt-5">
+        <div class="container mt-5">
             @foreach ($building->rooms as $room)
                 <div class="card shadow-sm mb-3">
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <h5 class="body-text" style="font-weight: 500;">{{ $room->room_name }}</h5>
-                        <a href="{{ route('rooms.show', $room->id) }}" class="btn btn-primary">Lihat Detail</a>
+                        <a href="{{ route('rooms.show', $room->id) }}" class="button-primary d-flex justify-content-center align-items-center" style="width: 150px">Lihat Detail</a>
                     </div>
                 </div>
             @endforeach

@@ -40,4 +40,23 @@ class BuildingController extends Controller
         $room = Room::with('facilities', 'schedules.user')->findOrFail($id);
         return view('pages.detail_ruangan', compact('room'));
     }
+
+    public function getProdi(Request $request)
+    {
+        $fakultas = $request->input('fakultas');
+        $prodi = Building::where('faculty', $fakultas)->pluck('prodi');
+
+        return response()->json($prodi);
+    }
+
+    public function getRuangan(Request $request)
+    {
+        $fakultas = $request->input('fakultas');
+        $prodi = $request->input('prodi');
+        $ruangan = Room::whereHas('building', function ($query) use ($fakultas, $prodi) {
+            $query->where('faculty', $fakultas)->where('prodi', $prodi);
+        })->pluck('room_name');
+
+        return response()->json($ruangan);
+    }
 }

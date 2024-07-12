@@ -20,7 +20,7 @@ class Admin extends Model
 
     public function schedules(): HasMany
     {
-        return $this->hasMany(Schedules::class);
+        return $this->hasMany(LoanSchedules::class);
     }
 
     public function adminRole(): HasOne

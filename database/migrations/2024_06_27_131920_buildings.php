@@ -14,9 +14,9 @@ return new class extends Migration
             $table->integer('building_room');
             $table->integer('floor_quantity');
             $table->integer('building_capacity');
-            $table->string('faculty');
-            $table->string('prodi');
-            $table->boolean('is_highlighted')->default(false); // Adding highlight field
+            $table->string('faculty')->nullable();
+            $table->string('prodi')->nullable();
+            $table->boolean('is_highlighted')->default(false);
             $table->timestamps();
         });
     }

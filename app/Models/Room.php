@@ -14,7 +14,6 @@ class Room extends Model
 
     protected $fillable = [
         'building_id',
-        'facility_id',
         'room_name',
         'room_capacity',
         'number_of_floor',
@@ -30,8 +29,8 @@ class Room extends Model
         return $this->hasMany(Facility::class);
     }
 
-    public function schedules(): HasOne
+    public function schedules(): HasMany
     {
-        return $this->hasOne(LoanSchedules::class);
+        return $this->hasMany(LoanSchedules::class);
     }
 }
